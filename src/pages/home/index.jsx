@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '../../components';
-import { Body, Form, ConteinnerForm, Input } from './style'
+import { Body, Form, ConteinnerForm, Input, Label, ItemConteinner, Footer } from './style'
 
 
 const showLines = (totalValue, parts) => {
@@ -15,7 +15,7 @@ const showLines = (totalValue, parts) => {
         lines.push(<div key={i}>De {start} a {end}</div>);
         start = end;
     }
-    return <div>{lines}</div>;
+    return <ItemConteinner>{lines}</ItemConteinner>;
 };
 
 function Home() {
@@ -41,9 +41,9 @@ function Home() {
         <Body>
             <Form >
                 <ConteinnerForm>
-                    <label for='valor'>Valor:</label>
+                    <Label for='valor'>Valor:</Label>
                     <Input type="text" id='valor'  name='valor' value={valor} onChange={handleValorChange} />
-                    <label for='divisor'>Divisor:</label>
+                    <Label for='divisor'>Divisor:</Label>
                     <Input type="text" id='divisor' name='divisor' value={divisor} onChange={handleDivisorChange} />
                     <Button onClick={handleClick}>Enviar</Button>
                 </ConteinnerForm>
@@ -55,6 +55,7 @@ function Home() {
                 
                
             </Form>
+            <Footer> &copy;NBO2001 </Footer>
         </Body> 
        
     );

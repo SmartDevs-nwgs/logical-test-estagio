@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '../../components';
+import { Body, Form, ConteinnerForm, Input } from './style'
 
 
 const showLines = (totalValue, parts) => {
@@ -37,14 +38,25 @@ function Home() {
     };
 
     return (
-        <div>
-            <input type="text" name='valor' value={valor} onChange={handleValorChange} />
-            <input type="text" name='divisor' value={divisor} onChange={handleDivisorChange} />
-            <Button onClick={handleClick}>Enviar</Button>
-            {
-                show && showLines(valor, divisor)
-            }
-        </div>
+        <Body>
+            <Form >
+                <ConteinnerForm>
+                    <label for='valor'>Valor:</label>
+                    <Input type="text" id='valor'  name='valor' value={valor} onChange={handleValorChange} />
+                    <label for='divisor'>Divisor:</label>
+                    <Input type="text" id='divisor' name='divisor' value={divisor} onChange={handleDivisorChange} />
+                    <Button onClick={handleClick}>Enviar</Button>
+                </ConteinnerForm>
+                <div>
+                    {
+                        show && showLines(valor, divisor)
+                    }
+                </div>
+                
+               
+            </Form>
+        </Body> 
+       
     );
 }
 
